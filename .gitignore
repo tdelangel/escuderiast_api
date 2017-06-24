@@ -1,0 +1,13 @@
+
+.idea
+
+# compiled output
+/dist
+/tmp
+/log
+/public
+Gemfile.lock
+nbproject/
+config/database.yml
+config/application.yml
+download/
