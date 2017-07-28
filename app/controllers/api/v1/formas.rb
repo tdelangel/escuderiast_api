@@ -18,9 +18,10 @@
           parameters.permit(:id)
           form_id = parameters[:id]
         
-          forma = Forma.find(form_id)          
+          forma = Forma.find(form_id)     
+          autos   = Auto.find(form_id)  
         
-          {:forma=>forma}  
+          {:forma=>forma, :autos=>autos}
         end
         desc "create a new cat autos"
         ## This takes care of parameter validation

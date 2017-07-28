@@ -29,11 +29,15 @@ cat_autos = [
 
 cat_clientes = [
 
-{ id: 1, idcat_cliente:1, cat_cliente_nombre: "Tomas", cat_cliente_paterno:"del Angel",cat_cliente_materno: "Mujica", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 },
-{ id: 2, idcat_cliente:2, cat_cliente_nombre: "Pedro", cat_cliente_paterno:"olvera",cat_cliente_materno: "Cantico", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 },
-{ id: 3, idcat_cliente:3, cat_cliente_nombre: "Pablo", cat_cliente_paterno:"llovera",cat_cliente_materno: "Ferriz", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel:55555555 },
-{ id: 4, idcat_cliente:4, cat_cliente_nombre: "Luis", cat_cliente_paterno:"barrera",cat_cliente_materno: "Fierro", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 },
-{ id: 5, idcat_cliente:5, cat_cliente_nombre: "Francisco", cat_cliente_paterno:"Castillo",cat_cliente_materno: "del Paso", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 }
+{ id: 1, cat_cliente_nombre: "Tomas", cat_cliente_paterno:"del Angel",cat_cliente_materno: "Mujica", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 },
+{ id: 2, cat_cliente_nombre: "Pedro", cat_cliente_paterno:"olvera",cat_cliente_materno: "Cantico", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 },
+{ id: 3, cat_cliente_nombre: "Pablo", cat_cliente_paterno:"llovera",cat_cliente_materno: "Ferriz", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel:55555555 },
+{ id: 4, cat_cliente_nombre: "Luis", cat_cliente_paterno:"barrera",cat_cliente_materno: "Fierro", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 },
+{ id: 5, cat_cliente_nombre: "Francisco", cat_cliente_paterno:"Castillo",cat_cliente_materno: "del Paso", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 }
+]
+
+roles= [
+{ id: 1, nombre:"Admin", descripcion: "Administrador"}
 ]
 
 inspeccion= [
@@ -44,6 +48,7 @@ inspeccion= [
 Auto.create(cat_autos)
 Cliente.create(cat_clientes)
 Forma.create(inspeccion)
+Rol.create(roles)
 
-User.create!(:name => 'SuperAdmin',:username => 'superadmin',:email => 'tdelangel121@gmail.com',:password => 'sadmin1234',:role => 'SA')
+User.create!(:name => 'SuperAdmin',:username => 'superadmin',:role => 1,:email => 'tdelangel121@gmail.com',:password => 'sadmin1234')
 

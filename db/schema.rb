@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618201141) do
+ActiveRecord::Schema.define(version: 20170630044926) do
 
   create_table "cat_autos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "idcat_autos"
@@ -20,16 +20,23 @@ ActiveRecord::Schema.define(version: 20170618201141) do
     t.string  "cat_autos_marca"
     t.string  "cat_autos_modelo"
     t.string  "cat_autos_vin"
+    t.integer "cat_marca_auto"
   end
 
   create_table "cat_clientes", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "idcat_cliente"
-    t.string "cat_cliente_nombre"
-    t.string "cat_cliente_paterno"
-    t.string "cat_cliente_materno"
-    t.string "cat_cliente_correo"
-    t.bigint "cat_cliente_tel"
-    t.bigint "cat_cliente_cel"
+    t.integer "cat_cliente_id"
+    t.string  "cat_cliente_nombre"
+    t.string  "cat_cliente_paterno"
+    t.string  "cat_cliente_materno"
+    t.string  "cat_cliente_correo"
+    t.bigint  "cat_cliente_tel"
+    t.bigint  "cat_cliente_cel"
+  end
+
+  create_table "cat_marca_auto", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "marca"
+    t.string "submarca"
+    t.string "anio"
   end
 
   create_table "cat_puntos_inspeccion", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -38,16 +45,20 @@ ActiveRecord::Schema.define(version: 20170618201141) do
     t.string "tipo"
   end
 
+  create_table "cat_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "nombre"
+    t.string "descripcion"
+  end
+
   create_table "cat_usuario", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "idcat_usuario"
-    t.string  "cat_usuario_nombre"
-    t.string  "cat_usuario_paterno"
-    t.string  "cat_usuario_materno"
-    t.string  "cat_usuario_correo"
-    t.string  "cat_usuario_puesto"
-    t.string  "cat_usuario_estatus"
-    t.string  "cat_usuario_cel"
-    t.string  "cat_usuario_tel"
+    t.string "cat_usuario_nombre"
+    t.string "cat_usuario_paterno"
+    t.string "cat_usuario_materno"
+    t.string "cat_usuario_correo"
+    t.string "cat_usuario_puesto"
+    t.string "cat_usuario_estatus"
+    t.string "cat_usuario_cel"
+    t.string "cat_usuario_tel"
   end
 
   create_table "cliente_autos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -80,16 +91,21 @@ ActiveRecord::Schema.define(version: 20170618201141) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
-    t.string   "role",                   default: "User"
+    t.integer  "role",                   default: 0
     t.string   "name",                   default: "User"
     t.string   "username",               default: "User"
+    t.integer  "id_clientes"
+    t.integer  "id_usuario"
     t.string   "confirmation_token"
+    t.integer  "cat_cliente_id"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["role"], name: "fk_rails_b75cce3e9e", using: :btree
   end
 
+  add_foreign_key "users", "cat_roles", column: "role"
 end
