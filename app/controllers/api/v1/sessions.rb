@@ -71,14 +71,14 @@ module API
 									puts password					
 							user = User.where("email = ?", username).first!	
 
-							if ((params[:origen]=='true') && ((user.role=='SA')||(user.role=='AD')||(user.role=='ED')||(user.role=='EAD')||(user.role=='EED')))
+							if ((params[:origen]=='true') && ((user.role==1)||(user.role==2)||(user.role==3)||(user.role==4)||(user.role=='EED')))
 								if user && user.valid_password?(password)
 							        user.ensure_authentication_token						        
 							        return create_session(user)
 						      	else						      		
 						        	return invalid_credentials
 						      	end
-						    elsif ((params[:origen].nil?) && ((user.role=='Administrador')||(user.role=='Editor')))
+						    elsif ((params[:origen].nil?) && ((user.role==1)||(user.role==2)))
 						    	if user && user.valid_password?(password)
 							        user.ensure_authentication_token						        
 							        return create_session(user)

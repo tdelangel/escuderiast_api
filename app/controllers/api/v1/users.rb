@@ -11,9 +11,9 @@ module API
             parameters.permit(:origen)
             origen = parameters[:origen]
             if (origen=='true')
-              usuarios = User.where(role:['AD','ED','EAD','EED']) 
+              usuarios = User.where(role:[1]) 
             else
-              usuarios = User.where(role:['Administrador','Editor'])
+              usuarios = User.where(role:[1])
             end                      
             present usuarios
           end

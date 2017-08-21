@@ -41,7 +41,8 @@ roles= [
 ]
 
 inspeccion= [
-{ id: 1, estatus_inspeccion:"true", notas_inspeccion: "nota falsa", fecha_inspeccion: "12/01/2017", fecha_actualizacion: "12/01/2017", idcat_puntos_inspeccion: 1, idcliente_autos: 1, cotizacion:9, url_video:"url video", url_imagen:"Url de imagen" }
+{ id: 1, estatus_inspeccion:"true", notas_inspeccion: "nota falsa", fecha_inspeccion: "12/01/2017", fecha_actualizacion: "12/01/2017", idcat_puntos_inspeccion: 1, idcliente_autos: 1, cotizacion:9, url_video:"url video", url_imagen:"Url de imagen" },
+{ id: 2, estatus_inspeccion:"true", notas_inspeccion: "nota falsa", fecha_inspeccion: "12/01/2017", fecha_actualizacion: "12/01/2017", idcat_puntos_inspeccion: 1, idcliente_autos: 1, cotizacion:9, url_video:"url video", url_imagen:"Url de imagen" }
 ]
 
 

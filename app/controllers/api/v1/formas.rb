@@ -5,7 +5,25 @@
               resource :formas  do        
                 desc "DEBUG - Lista todo los forma"
         get "/" do
-          Forma.all
+         # allForma  = Forma.all
+         #allForma = Forma.where(id: 1) Forma.joins(:Auto).where(Auto: { forma: })
+  #allForma = Forma.joins("INNER JOIN cliente_autos ON cliente_autos_inspeccion.id = cliente_autos.id").includes(:Auto)
+ allForma = Forma.includes(:auto).order(" id desc")
+
+                joinSet = []
+
+                allForma.each{ |forma| 
+                  joinObject = {} 
+                  joinObject[:id] = forma.id
+                  joinObject[:estatus_inspeccion] = forma.estatus_inspeccion
+                  joinObject[:notas_inspeccion] = forma.notas_inspeccion
+                  joinObject[:fecha_inspeccion] = forma.fecha_inspeccion
+                  joinObject[:fecha_actualizacion] = forma.fecha_actualizacion
+                  joinObject[:idcat_puntos_inspeccion] = forma.idcat_puntos_inspeccion
+                  joinObject[:n_auto] = forma.auto       
+                  joinSet << joinObject 
+                }
+                {:cliente_autos_inspeccion=>joinSet} 
         end
         
         desc "Busca forma por id"  
