@@ -13,6 +13,13 @@
                 joinSet = []
 
                 allForma.each{ |forma| 
+                  idinspeccion = forma.idcat_puntos_inspeccion
+              
+                  inspeccionA = Punto.where(tipo:'Aceptado', id_cat_puntos_inspeccion: idinspeccion);
+                  inspeccionR = Punto.where(tipo:'Rechazado', id_cat_puntos_inspeccion: idinspeccion);
+                  inspeccionP = Punto.where(tipo:'Pendiente', id_cat_puntos_inspeccion: idinspeccion);
+                  #Person.where(age: 21).limit(5).pluck(:id)
+                  #inspeccion = Punto.sum(:id_cat_puntos_inspeccion, :conditions => {:id => [1]})
                   joinObject = {} 
                   joinObject[:id] = forma.id
                   joinObject[:estatus_inspeccion] = forma.estatus_inspeccion
@@ -20,7 +27,14 @@
                   joinObject[:fecha_inspeccion] = forma.fecha_inspeccion
                   joinObject[:fecha_actualizacion] = forma.fecha_actualizacion
                   joinObject[:idcat_puntos_inspeccion] = forma.idcat_puntos_inspeccion
-                  joinObject[:n_auto] = forma.auto       
+                  joinObject[:inspeccionA_count] = inspeccionA.count 
+                  joinObject[:inspeccionA] = inspeccionA
+                  joinObject[:inspeccionR_count] = inspeccionR.count 
+                  joinObject[:inspeccionR] = inspeccionR
+                  joinObject[:inspeccionP_count] = inspeccionP.count 
+                  joinObject[:inspeccionP] = inspeccionP
+                  joinObject[:n_auto] = forma.auto  
+
                   joinSet << joinObject 
                 }
                 {:cliente_autos_inspeccion=>joinSet} 
