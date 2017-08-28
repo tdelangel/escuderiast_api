@@ -46,6 +46,14 @@ inspeccion= [
 ]
 
 
+cat_puntos_inspeccion= [
+{ id: 1, nombre:"Carroceria exterior", tipo: "Inicial", descripcion: "Carroceria Exterior" },
+{ id: 2, nombre:"Carroceria Tablero", tipo: "total", descripcion: "Tablero" },
+{ id: 3, nombre:"Carroceria Palanca de frenos", tipo: "Inicial", descripcion: "Frenos" },
+{ id: 4, nombre:"Carroceria Interior", tipo: "Inicial", descripcion: "Carroceria Interior" }
+]
+
+Cpunto.create(cat_puntos_inspeccion)
 Auto.create(cat_autos)
 Cliente.create(cat_clientes)
 Forma.create(inspeccion)

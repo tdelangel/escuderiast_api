@@ -9,6 +9,7 @@ module API
       mount API::V1::Formas
       mount API::V1::Users
       mount API::V1::Puntos
+      mount API::V1::Cpuntos
 
       helpers do
         protected

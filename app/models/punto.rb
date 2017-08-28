@@ -1,3 +1,3 @@
 class Punto < ActiveRecord::Base 
-    self.table_name = "cat_puntos_inspeccion" 
+    self.table_name = "puntos_inspeccion" 
 end
