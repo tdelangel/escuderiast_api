@@ -27,17 +27,12 @@ cat_autos = [
 { id: 17, idcat_autos:17, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejempl",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Trabajo"}
 ]
 
-cat_clientes = [
 
-{ id: 1, cat_cliente_nombre: "Tomas", cat_cliente_paterno:"del Angel",cat_cliente_materno: "Mujica", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 },
-{ id: 2, cat_cliente_nombre: "Pedro", cat_cliente_paterno:"olvera",cat_cliente_materno: "Cantico", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 },
-{ id: 3, cat_cliente_nombre: "Pablo", cat_cliente_paterno:"llovera",cat_cliente_materno: "Ferriz", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel:55555555 },
-{ id: 4, cat_cliente_nombre: "Luis", cat_cliente_paterno:"barrera",cat_cliente_materno: "Fierro", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 },
-{ id: 5, cat_cliente_nombre: "Francisco", cat_cliente_paterno:"Castillo",cat_cliente_materno: "del Paso", cat_cliente_correo:"hola@mayahuelapps.com", cat_cliente_tel:5585369134, cat_cliente_cel: 55555555 }
-]
 
 roles= [
-{ id: 1, nombre:"Admin", descripcion: "Administrador"}
+{ id: 1, nombre:"Admin", descripcion: "Administrador"},
+{ id: 2, nombre:"Cliente", descripcion: "Cliente"},
+{ id: 3, nombre:"User", descripcion: "usuario con dependencia"}
 ]
 
 inspeccion= [
@@ -55,7 +50,6 @@ cat_puntos_inspeccion= [
 
 Cpunto.create(cat_puntos_inspeccion)
 Auto.create(cat_autos)
-Cliente.create(cat_clientes)
 Forma.create(inspeccion)
 Rol.create(roles)
 

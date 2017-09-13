@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_one :datos_general
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,7 +19,8 @@ class User < ActiveRecord::Base
   
   # leave the devise line
   # devise :database_authenticatable etc.
-
+   # attr_accessible :name, :avatar_path, :avatar
+   # has_attached_file :avatar, :path => ":/home/tdelangel/Documents/Projects/escuderiast_api/files/:filename"
 
   # Test if user has a role e.g. :admin, :user
   def role?(role_arg)

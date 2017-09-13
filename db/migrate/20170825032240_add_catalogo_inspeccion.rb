@@ -4,6 +4,8 @@ class AddCatalogoInspeccion < ActiveRecord::Migration[5.0]
 	      t.string :nombre
 	      t.string :tipo
 	      t.string :descripcion
+	      t.string :url_video
+	      t.string :url_imagen
 		end
 	end
 end

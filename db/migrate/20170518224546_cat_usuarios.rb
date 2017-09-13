@@ -1,14 +1,14 @@
 class CatUsuarios < ActiveRecord::Migration[5.0]
   	def change
-		create_table :cat_usuario do |t|
-	      t.string :cat_usuario_nombre
-	      t.string :cat_usuario_paterno
-	      t.string :cat_usuario_materno
-	      t.string :cat_usuario_correo
-	      t.string :cat_usuario_puesto
-	      t.string :cat_usuario_estatus
-	      t.string :cat_usuario_cel
-	      t.string :cat_usuario_tel
+		create_table :datos_generales do |t|
+	      t.string :nombre
+	      t.string :apaterno
+	      t.string :amaterno
+	      t.string :correo
+	      t.string :puesto
+	      t.string :estatus
+	      t.string :user_cel
+	      t.string :user_tel
 	    end  	
   	end
 end

@@ -11,9 +11,9 @@ module API
             parameters.permit(:origen)
             origen = parameters[:origen]
             if (origen=='true')
-              usuarios = User.where(role:[1]) 
+              usuarios = User.where(role:[1,2,3]) 
             else
-              usuarios = User.where(role:[1])
+              usuarios = User.where(role:[1,2,3])
             end                      
             present usuarios
           end
@@ -30,34 +30,49 @@ module API
           desc "Crear Usuario"
           params do
             requires :user, :type => Hash do
-              requires :name, type: String
               requires :email, type: String
               requires :username, type: String
-              #requires :encrypted_password, type: String
               requires :password, type: String
-              optional :role, type: String
-              optional :estado_id, type: Integer
-              optional :dependencia_id, type: Integer
-              #optional :active, type: Boolean              
+              optional :role, type: String    
+              requires :nombre, type: String     
+              requires :apaterno, type: String     
+              requires :amaterno, type: String     
+              requires :user_tel, type: String     
+              requires :user_cel, type: String     
+              requires :puesto, type: String     
             end
           end
           post "/" do
+            
             parameters = ActionController::Parameters.new(params).require(:user)
-            parameters.permit(:name, :email, :username, :password, :role, :estado_id, :dependencia_id)
+            parameters.permit(:email, :username, :password, :role)
+      
             begin
               generated_password = Devise.friendly_token.first(8)
               user = User.create!(
-                :name => parameters[:name],
+                :name => parameters[:nombre],
                 :email => parameters[:email],
                 :username => parameters[:username],
                 :password => generated_password,
-                :role => parameters[:role],
-                :estado_id => parameters[:estado_id],
-                :dependencia_id => parameters[:dependencia_id]
+                :role => parameters[:role])
+              
+            id = user.id
+              user = Datos_general.create!(
+                :id => id,
+                :nombre => parameters[:nombre],
+                :amaterno => parameters[:amaterno],
+                :apaterno => parameters[:apaterno],
+                :puesto => parameters[:puesto],
+                :estatus => parameters[:estatus],
+                :user_cel => parameters[:user_cel],
+                :user_tel => parameters[:user_tel],
               )
-              {:user=>user}
+        
+          
+
+                 {:user=>user}
             rescue
-              error! 'Nombre de Usuario y Correo Electrónico deben ser únicos', 422
+              error! 'Nombre de Usuario y Correo Electrónico deben ser únicos y el rol debe ser del catalogo de roles', 422
             end
           end
 
@@ -70,9 +85,7 @@ module API
               optional :username, type: String
               optional :encrypted_password, type: String
               optional :role, type: String
-              optional :active, type: String
-              optional :estado_id, type: Integer
-              optional :dependencia_id, type: Integer             
+              optional :active, type: String       
             end
           end
           put "/:id" do
@@ -82,7 +95,7 @@ module API
             if user
              begin
                 user.update(
-                  parameters.permit(:name, :email, :username, :encrypted_password, :role, :active, :estado_id, :dependencia_id)
+                  parameters.permit(:name, :email, :username, :encrypted_password, :role, :active)
                 )
                 {:user=>user}
              rescue

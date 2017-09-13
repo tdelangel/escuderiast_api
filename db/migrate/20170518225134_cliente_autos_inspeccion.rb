@@ -8,8 +8,6 @@ class ClienteAutosInspeccion < ActiveRecord::Migration[5.0]
 		    t.integer :idcat_puntos_inspeccion
 		    t.integer :idcliente_autos
 		    t.integer :cotizacion
-		    t.string :url_video
-		    t.string :url_imagen
 		end
   end
 end
