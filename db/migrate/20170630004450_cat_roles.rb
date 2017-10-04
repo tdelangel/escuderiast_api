@@ -1,4 +1,4 @@
-class CatRoles < ActiveRecord::Migration[5.0]
+class CatRoles < ActiveRecord::Migration
  	def change
  	  	create_table :cat_roles do |t|
 	      t.string :nombre

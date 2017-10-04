@@ -1,4 +1,4 @@
-class ClienteAutos < ActiveRecord::Migration[5.0]
+class ClienteAutos < ActiveRecord::Migration
   	def change
 		create_table :cliente_autos do |t|
 	   	t.integer :idcliente_autos

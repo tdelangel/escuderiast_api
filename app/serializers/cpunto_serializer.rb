@@ -1,4 +1,4 @@
 class CpuntoSerializer < ActiveModel::Serializer
-  attributes :id,:nombre, :tipo, :descripcion
+  attributes :id,:nombre, :tipo, :descripcion	
 end
 

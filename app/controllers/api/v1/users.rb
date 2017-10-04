@@ -15,10 +15,10 @@ module API
             else
               usuarios = User.where(role:[1,2,3])
             end                      
-            present usuarios
+             {:users => usuarios}
           end
 
-          desc "User ID"
+          desc "User por ID"
           get "/:id" do
             parameters = ActionController::Parameters.new(params)
             parameters.permit(:id)
@@ -57,7 +57,7 @@ module API
                 :role => parameters[:role])
               
             id = user.id
-              user = Datos_general.create!(
+              datos = Datos_general.create!(
                 :id => id,
                 :nombre => parameters[:nombre],
                 :amaterno => parameters[:amaterno],

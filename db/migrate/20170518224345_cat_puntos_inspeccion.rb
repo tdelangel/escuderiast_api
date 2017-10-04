@@ -1,4 +1,4 @@
-class CatPuntosInspeccion < ActiveRecord::Migration[5.0]
+class CatPuntosInspeccion < ActiveRecord::Migration
 	def change
 		create_table :puntos_inspeccion do |t|
 	      t.string :id_cat_puntos_inspeccion 

@@ -1,4 +1,4 @@
-class AddCatalogoInspeccion < ActiveRecord::Migration[5.0]
+class AddCatalogoInspeccion < ActiveRecord::Migration
   	def change  
 	  	create_table :cat_puntos_inspeccion do |t|
 	      t.string :nombre

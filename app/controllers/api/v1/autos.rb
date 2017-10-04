@@ -5,7 +5,27 @@ module API
       resource :autos  do        
         desc "DEBUG - Lista todo los autos"
         get "/" do
-          Auto.all
+          allAutos = Auto.all
+
+                joinSet = []
+
+                allAutos.each{ |auto| 
+                  cat_autos = auto.id_cat_autos
+              
+                  cat = Cauto.where(id: cat_autos);
+                        joinObject = {} 
+                  joinObject[:id] = auto.id
+                  joinObject[:placas] = auto.placas
+                  joinObject[:notas] = auto.notas
+                  joinObject[:anio] = auto.anio
+                  joinObject[:id_cat_autos] = auto.id_cat_autos
+                  joinObject[:vin] = auto.vin
+                  joinObject[:id_cliente] = auto.id_cliente
+                   joinObject[:cat_autos] = cat
+
+                  joinSet << joinObject 
+                }
+                {:auto=>joinSet} 
         end
 
         desc "Busca autos por id"  
@@ -20,33 +40,49 @@ module API
 
           auto = Auto.find(form_id)          
 
-          {:auto=>auto}  
+            joinSet = []
+
+               
+                  cat_autos = auto.id_cat_autos
+              
+                  cat = Cauto.where(id: cat_autos);
+                        joinObject = {} 
+                  joinObject[:id] = auto.id
+                  joinObject[:placas] = auto.placas
+                  joinObject[:notas] = auto.notas
+                  joinObject[:anio] = auto.anio
+                  joinObject[:id_cat_autos] = auto.id_cat_autos
+                  joinObject[:id_cliente] = auto.id_cliente
+                   joinObject[:vin] = auto.vin
+                   joinObject[:cat_autos] = cat
+
+                  joinSet << joinObject 
+                
+                {:auto=>joinSet} 
         end
 
       desc "Crear Formulario"
       params do
-        requires :auto, :type => Hash do
-          requires :idcat_autos, type: Integer
-          requires :cat_autos_placas, type: String                        
-          requires :cat_autos_notas, type: String
-          requires :cat_autos_anio, type: Integer
-          requires :cat_autos_marca, type: String
-          requires :cat_autos_modelo, type: String
-          requires :cat_autos_vin, type: String         
+        requires :auto, :type => Hash do                    
+          requires :placas, type: String                        
+          requires :notas, type: String
+          requires :anio, type: Integer
+          requires :id_cat_autos, type: Integer
+          requires :id_cliente, type: Integer
+          requires :vin, type: String         
         end  
       end        
       post "/",root:"auto" do
         parameters = ActionController::Parameters.new(params).require(:auto)                     
-        parameters.permit(:idcat_autos, :cat_autos_placas, :cat_autos_notas, :pago, :cat_autos_anio, :cat_autos_marca)
+        parameters.permit( :placas, :notas, :anio, :id_cat_autos,:id_cliente, :vin)
             auto = Auto.create!({
-              :idcat_autos=>parameters[:idcat_autos],
-              :cat_autos_placas=>parameters[:cat_autos_placas],
-              :cat_autos_notas=>parameters[:cat_autos_notas],                
-              :cat_autos_anio=>parameters[:cat_autos_marca],
-              :cat_autos_marca=>parameters[:nombre].strip,
-              :cat_autos_modelo=>parameters[:cat_autos_modelo],
-              :fecha_inicio=>parameters[:fecha_inicio],
-              :cat_autos_vin=>parameters[:cat_autos_vin]            
+              :placas=>parameters[:placas],
+              :notas=>parameters[:notas],                
+              :anio=>parameters[:anio],
+              :id_cat_autos=>parameters[:id_cat_autos],
+              :vin=>parameters[:vin],
+              :id_cliente=>parameters[:id_cliente]
+                         
              })
               {:autos=>auto}            
            end           

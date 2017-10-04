@@ -1,4 +1,4 @@
-class CatUsuarios < ActiveRecord::Migration[5.0]
+class CatUsuarios < ActiveRecord::Migration
   	def change
 		create_table :datos_generales do |t|
 	      t.string :nombre

@@ -31,11 +31,11 @@
                   joinObject[:puntos_sugeridos] = inspeccionR
                   joinObject[:sinreparacion_count] = inspeccionP.count 
                   joinObject[:puntos_sin_reparacion] = inspeccionP
-                  joinObject[:n_auto] = forma.auto  
+                  joinObject[:auto] = forma.auto  
 
                   joinSet << joinObject 
                 }
-                {:cliente_autos_inspeccion=>joinSet} 
+                {:forma=>joinSet} 
         end
         
         desc "Busca forma por id"  

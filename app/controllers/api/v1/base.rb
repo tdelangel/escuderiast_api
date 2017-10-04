@@ -9,6 +9,7 @@ module API
       mount API::V1::Users
       mount API::V1::Puntos
       mount API::V1::Cpuntos
+      mount API::V1::Cautos
       mount API::V1::Dgenerales
 
       helpers do

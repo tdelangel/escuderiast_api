@@ -6,28 +6,131 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-cat_autos = [
+autos = [
 
-{ id: 1,  idcat_autos:1, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejemplo",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Identidad" },
-{ id: 2,  idcat_autos:2, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejemplo",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Identidad" },
-{ id: 3,  idcat_autos:3, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejemplo",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Salud" },
-{ id: 4,  idcat_autos:4, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejemplo",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Programas Sociales" },
-{ id: 5,  idcat_autos:5, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejemplo",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Trabajo" },
-{ id: 6,  idcat_autos:6, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejemplo",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Impuestos" },
-{ id: 7,  idcat_autos:7, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejemplo",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Migración, Visa y Pasaporte" },
-{ id: 8,  idcat_autos:8, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejemplo",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Economía" },
-{ id: 9,  idcat_autos:9, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejemplo",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Territorio y vivienda" },
-{ id: 10, idcat_autos:10, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejempl",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Turismo" },
-{ id: 11, idcat_autos:11, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejempl",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Medio Ambiente" },
-{ id: 12, idcat_autos:12, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejempl",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Seguridad, legalidad y justicia" },
-{ id: 13, idcat_autos:13, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejempl",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Servicios Financieros" },
-{ id: 14, idcat_autos:14, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejempl",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Comunicaciones y transportes" },
-{ id: 15, idcat_autos:15, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejempl",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Asociaciones y Organizaciones" },
-{ id: 16, idcat_autos:16, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejempl",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Energía" },
-{ id: 17, idcat_autos:17, cat_autos_placas: "AEMT1221", cat_autos_notas:"Nota ejempl",cat_autos_anio: 2017, cat_autos_marca:"Toyota", cat_autos_modelo:"Prius 2017",cat_autos_vin: "Trabajo"}
+{id_cliente:1,  placas: "AEMT221", notas:"Nota ejemplo", anio: 2017, id_cat_autos: 1, vin: "Identidad" },
+{id_cliente:2,  placas: "AEMT222", notas:"Nota ejemplo", anio: 2018, id_cat_autos: 2, vin: "Identidad" },
+{id_cliente:3,  placas: "AEMT223", notas:"Nota ejemplo", anio: 2016, id_cat_autos: 1, vin: "Salud" },
+{id_cliente:4,  placas: "AEM5424", notas:"Nota ejemplo", anio: 2016, id_cat_autos: 3, vin: "Programas Sociales" },
+{id_cliente:5,  placas: "AEM5425", notas:"Nota ejemplo", anio: 2015, id_cat_autos: 3, vin: "Trabajo" },
+{id_cliente:6,  placas: "AEM5426", notas:"Nota ejemplo", anio: 2013, id_cat_autos: 1, vin: "Impuestos" },
+{id_cliente:7,  placas: "AEM5427", notas:"Nota ejemplo", anio: 2013, id_cat_autos: 3, vin: "Migración, Visa y Pasaporte" },
+{id_cliente:8,  placas: "AEM5428", notas:"Nota ejemplo", anio: 2011, id_cat_autos: 2, vin: "Economía" },
+{id_cliente:9,  placas: "AEM2129", notas:"Nota ejemplo", anio: 2011, id_cat_autos: 2, vin: "Territorio y vivienda" },
+{id_cliente:10, placas: "AEM2110", notas:"Nota ejemplo", anio: 2013, id_cat_autos: 6, vin: "Turismo" },
+{id_cliente:11, placas: "AEM2111", notas:"Nota ejemplo", anio: 2014, id_cat_autos: 6, vin: "Medio Ambiente" },
+{id_cliente:12, placas: "AEM2112", notas:"Nota ejemplo", anio: 2015, id_cat_autos: 6, vin: "Seguridad, legalidad y justicia" },
+{id_cliente:13, placas: "AEM2113", notas:"Nota ejemplo", anio: 2017, id_cat_autos: 6, vin: "Servicios Financieros" },
+{id_cliente:14, placas: "AEM2114", notas:"Nota ejemplo", anio: 2018, id_cat_autos: 6, vin: "Comunicaciones y transportes" },
+{id_cliente:15, placas: "AEM2115", notas:"Nota ejemplo", anio: 2018, id_cat_autos: 7, vin: "Asociaciones y Organizaciones" },
+{id_cliente:16, placas: "AEM2116", notas:"Nota ejemplo", anio: 2017, id_cat_autos: 2, vin: "Energía" },
+{id_cliente:17, placas: "AEM2117", notas:"Nota ejemplo", anio: 2017, id_cat_autos: 2, vin: "Trabajo"}
 ]
 
 
+cat_autos =[
+{marca: "ABARTH",submarca: "500C"},
+{marca: "ABARTH",submarca: "500"},
+{marca: "ABARTH",submarca: "124 Spider"},
+{marca: "ALFA ROMEO",submarca: "Giulietta"},
+{marca: "ALFA ROMEO",submarca: "MiTo"},
+{marca: "ALFA ROMEO",submarca: "4C"},
+{marca: "ALFA ROMEO",submarca: "Giulia"},
+{marca: "ALFA ROMEO",submarca: "Stelvio"},
+{marca: "ALFA ROMEO (FIAT)",submarca:"4C"},
+{marca: "ASTON MARTIN",submarca: "DB9"},
+{marca: "ASTON MARTIN",submarca: "Vantage V8"},
+{marca: "ASTON MARTIN",submarca: "Vanquish"},
+{marca: "ASTON MARTIN",submarca: "Vantage V12"},
+{marca: "ASTON MARTIN",submarca: "Rapide"},
+{marca: "AUDI",submarca: "A4"},
+{marca: "AUDI",submarca: "A8"},
+{marca: "AUDI",submarca: "A3"},
+{marca: "AUDI",submarca: "TT"},
+{marca: "AUDI",submarca: "A5"},
+{marca: "AUDI",submarca: "A4 Allroad Quattro"},
+{marca: "AUDI",submarca: "A6"},
+{marca: "AUDI",submarca: "A7"},
+{marca: "AUDI",submarca: "Q3"},
+{marca: "AUDI",submarca: "Q5"},
+{marca: "AUDI",submarca: "S5"},
+{marca: "AUDI",submarca: "A1"},
+{marca: "AUDI",submarca: "A6 Allroad Quattro"},
+{marca: "AUDI",submarca: "S7"},
+{marca: "AUDI",submarca: "S6"},
+{marca: "AUDI",submarca: "S8"},
+{marca: "AUDI",submarca: "RS4"},
+{marca: "AUDI",submarca: "RS5"},
+{marca: "AUDI",submarca: "R8"},
+{marca: "AUDI",submarca: "SQ5"},
+{marca: "AUDI",submarca: "Q7"},
+{marca: "AUDI",submarca: "RS6"},
+{marca: "AUDI",submarca: "RS7"},
+{marca: "AUDI",submarca: "RS Q3"},
+{marca: "AUDI",submarca: "S3"},
+{marca: "AUDI",submarca: "S1"},
+{marca: "AUDI",submarca: "TTS"},
+{marca: "AUDI",submarca: "S4"},
+{marca: "AUDI",submarca: "RS3"},
+{marca: "AUDI",submarca: "SQ7"},
+{marca: "AUDI",submarca: "Q2"},
+{marca: "AUDI",submarca: "TTS"},
+{marca: "AUDI",submarca: "SQ7"},
+{marca: "AUDI",submarca: "S4"},
+{marca: "AUDI",submarca: "S6"},
+{marca: "AUDI",submarca: "S7"},
+{marca: "BENTLEY",submarca: "Continental GT"},
+{marca: "BENTLEY",submarca: "Mulsanne"},
+{marca: "BENTLEY",submarca: "Flying Spur"},
+{marca: "BENTLEY",submarca: "Continental GTC"},
+{marca: "BENTLEY",submarca: "Bentayga"},
+{marca: "BMW",submarca: "Serie 3"},
+{marca: "BMW",submarca: "Serie 5"},
+{marca: "BMW",submarca: "Serie 4"},
+{marca: "BMW",submarca: "Serie 7"},
+{marca: "BMW",submarca: "Z4"},
+{marca: "BMW",submarca: "X5"},
+{marca: "BMW",submarca: "Serie 1"},
+{marca: "BMW",submarca: "X3"},
+{marca: "BMW",submarca: "Serie 6"},
+{marca: "BMW",submarca: "X1"},
+{marca: "BMW",submarca: "X6"},
+{marca: "BMW",submarca: "I3"},
+{marca: "BMW",submarca: "Serie 2"},
+{marca: "BMW",submarca: "X4"},
+{marca: "BMW",submarca: "I8"},
+{marca: "BMW",submarca: "Serie 2 Gran Tourer"},
+{marca: "BMW",submarca: "Serie 2 Active Tourer"},
+{marca: "BYD",submarca:"E6"},
+{marca: "CHEVROLET",submarca: "Cruze"},
+{marca: "CHEVROLET",submarca: "Aveo"},
+{marca: "CHEVROLET",submarca: "Trax"},
+{marca: "CHEVROLET",submarca: "Orlando"},
+{marca: "CHEVROLET",submarca: "Spark"},
+{marca: "CHEVROLET",submarca: "Camaro"},
+{marca: "CITROEN",submarca: "C4"},
+{marca: "CITROEN",submarca: "C3"},
+{marca: "CITROEN",submarca: "C5"},
+{marca: "CITROEN",submarca: "C3 Picasso"},
+{marca: "CITROEN",submarca: "C4 Picasso"},
+{marca: "CITROEN",submarca: "Grand C4 Picasso"},
+{marca: "CITROEN",submarca: "C4 Aircross"},
+{marca: "CITROEN",submarca: "Nemo"},
+{marca: "CITROEN",submarca: "Berlingo"},
+{marca: "CITROEN",submarca: "C-Elysée"},
+{marca: "CITROEN",submarca: "C4 Cactus"},
+{marca: "CITROEN",submarca: "Cz1"},
+{marca: "CITROEN",submarca: "C-Zero"},
+{marca: "CITROEN",submarca: "C-Elysée"},
+{marca: "CITROEN",submarca: "Spacetourer"},
+{marca: "CITROEN",submarca: "E-Mehari"},
+{marca: "CITROEN",submarca: "C3 Aircross"},
+{marca: "DACIA",submarca: "Logan"},
+{marca: "DACIA",submarca: "Lodgy"},
+{marca: "DACIA",submarca: "Sandero"},
+{marca: "DACIA",submarca: "Duster"},
+{marca: "DACIA",submarca: "Dokker"}	
+]
 
 roles= [
 { id: 1, nombre:"Admin", descripcion: "Administrador"},
@@ -36,8 +139,8 @@ roles= [
 ]
 
 inspeccion= [
-{ id: 1, estatus_inspeccion:"true", notas_inspeccion: "nota falsa", fecha_inspeccion: "12/01/2017", fecha_actualizacion: "12/01/2017", idcat_puntos_inspeccion: 1, idcliente_autos: 1, cotizacion:9, url_video:"url video", url_imagen:"Url de imagen" },
-{ id: 2, estatus_inspeccion:"true", notas_inspeccion: "nota falsa", fecha_inspeccion: "12/01/2017", fecha_actualizacion: "12/01/2017", idcat_puntos_inspeccion: 1, idcliente_autos: 1, cotizacion:9, url_video:"url video", url_imagen:"Url de imagen" }
+{ id: 1, estatus_inspeccion:"true", notas_inspeccion: "nota falsa", fecha_inspeccion: "12/01/2017", fecha_actualizacion: "12/01/2017", idcat_puntos_inspeccion: 1, idcliente_autos: 1, cotizacion:9},
+{ id: 2, estatus_inspeccion:"true", notas_inspeccion: "nota falsa", fecha_inspeccion: "12/01/2017", fecha_actualizacion: "12/01/2017", idcat_puntos_inspeccion: 1, idcliente_autos: 1, cotizacion:9 }
 ]
 
 
@@ -49,9 +152,10 @@ cat_puntos_inspeccion= [
 ]
 
 Cpunto.create(cat_puntos_inspeccion)
-Auto.create(cat_autos)
+Auto.create(autos)
 Forma.create(inspeccion)
 Rol.create(roles)
+Cauto.create(cat_autos)
 
 User.create!(:name => 'SuperAdmin',:username => 'superadmin',:role => 1,:email => 'tdelangel121@gmail.com',:password => 'sadmin1234')
 

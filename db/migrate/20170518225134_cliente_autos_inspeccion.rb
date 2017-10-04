@@ -1,4 +1,4 @@
-class ClienteAutosInspeccion < ActiveRecord::Migration[5.0]
+class ClienteAutosInspeccion < ActiveRecord::Migration
   def change
   	create_table :cliente_autos_inspeccion do |t|
 		    t.string  :estatus_inspeccion
