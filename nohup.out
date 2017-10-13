@@ -1,0 +1,14 @@
+=> Booting Puma
+=> Rails 4.2.9 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+=> Ctrl-C to shutdown server
+Puma starting in single mode...
+* Version 3.10.0 (ruby 2.2.2-p95), codename: Russell's Teapot
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://localhost:3000
+Use Ctrl-C to stop
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2017-10-05 11:55:37 -0500 ===
+- Goodbye!
+Exiting

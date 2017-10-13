@@ -31,8 +31,6 @@ ActiveRecord::Schema.define(version: 20170825032240) do
     t.string "nombre",      limit: 255
     t.string "tipo",        limit: 255
     t.string "descripcion", limit: 255
-    t.string "url_video",   limit: 255
-    t.string "url_imagen",  limit: 255
   end
 
   create_table "cat_roles", force: :cascade do |t|
@@ -68,9 +66,13 @@ ActiveRecord::Schema.define(version: 20170825032240) do
   end
 
   create_table "puntos_inspeccion", force: :cascade do |t|
-    t.string "id_cat_puntos_inspeccion", limit: 255
-    t.string "cat_puntos_desc",          limit: 255
-    t.string "tipo",                     limit: 255
+    t.string  "id_cat_puntos_inspeccion", limit: 255
+    t.string  "nombre",                   limit: 255
+    t.string  "cat_puntos_desc",          limit: 255
+    t.string  "tipo",                     limit: 255
+    t.integer "id_forma",                 limit: 4
+    t.string  "url_video",                limit: 255
+    t.string  "url_imagen",               limit: 255
   end
 
   create_table "users", force: :cascade do |t|

@@ -13,11 +13,11 @@
                 joinSet = []
 
                 allForma.each{ |forma| 
-                  idinspeccion = forma.idcat_puntos_inspeccion
+                  idinspeccion = forma.id
               
-                  inspeccionA = Punto.where(tipo:'Urgentes', id_cat_puntos_inspeccion: idinspeccion);
-                  inspeccionR = Punto.where(tipo:'Sugeridos', id_cat_puntos_inspeccion: idinspeccion);
-                  inspeccionP = Punto.where(tipo:'Sin_reparacion', id_cat_puntos_inspeccion: idinspeccion);
+                  inspeccionA = Punto.where(tipo:'Urgentes', id_forma: idinspeccion);
+                  inspeccionR = Punto.where(tipo:'Sugeridos', id_forma: idinspeccion);
+                  inspeccionP = Punto.where(tipo:'Sin_reparacion', id_forma: idinspeccion);
                joinObject = {} 
                   joinObject[:id] = forma.id
                   joinObject[:estatus_inspeccion] = forma.estatus_inspeccion

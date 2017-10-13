@@ -139,19 +139,34 @@ roles= [
 ]
 
 inspeccion= [
-{ id: 1, estatus_inspeccion:"true", notas_inspeccion: "nota falsa", fecha_inspeccion: "12/01/2017", fecha_actualizacion: "12/01/2017", idcat_puntos_inspeccion: 1, idcliente_autos: 1, cotizacion:9},
+{ id: 1,estatus_inspeccion:"true", notas_inspeccion: "nota falsa", fecha_inspeccion: "12/01/2017", fecha_actualizacion: "12/01/2017", idcat_puntos_inspeccion: 1, idcliente_autos: 1, cotizacion:9},
 { id: 2, estatus_inspeccion:"true", notas_inspeccion: "nota falsa", fecha_inspeccion: "12/01/2017", fecha_actualizacion: "12/01/2017", idcat_puntos_inspeccion: 1, idcliente_autos: 1, cotizacion:9 }
 ]
 
-
-cat_puntos_inspeccion= [
-{ id: 1, nombre:"Carroceria exterior", tipo: "Inicial", descripcion: "Carroceria Exterior" },
-{ id: 2, nombre:"Carroceria Tablero", tipo: "total", descripcion: "Tablero" },
-{ id: 3, nombre:"Carroceria Palanca de frenos", tipo: "Inicial", descripcion: "Frenos" },
-{ id: 4, nombre:"Carroceria Interior", tipo: "Inicial", descripcion: "Carroceria Interior" }
+ 	     
+puntos= [
+{ id: 1, id_forma: 1, id_cat_puntos_inspeccion: 1, nombre:"Carroceria exterior", tipo: "Urgentes", cat_puntos_desc: "Carroceria Exterior", url_video:"t.string", url_imagen: "urlvideo"},
+{ id: 2, id_forma: 1, id_cat_puntos_inspeccion: 2, nombre:"Carroceria Tablero", tipo: "Sugeridos", cat_puntos_desc: "Tablero" , url_video:"t.string", url_imagen: "urlvideo"},
+{ id: 3, id_forma: 1, id_cat_puntos_inspeccion: 3, nombre:"Carroceria Palanca de frenos", tipo: "Sin_reparacion", cat_puntos_desc: "Frenos" , url_video:"t.string", url_imagen: "urlvideo"},
+{ id: 4, id_forma:1, id_cat_puntos_inspeccion: 3, nombre:"Carroceria Interior", tipo: "Urgentes", cat_puntos_desc: "Carroceria Interior" , url_video:"t.string", url_imagen: "urlvideo"},
+{ id: 5, id_forma:2, id_cat_puntos_inspeccion: 3, nombre:"Carroceria Interior", tipo: "Urgentes", cat_puntos_desc: "Carroceria Interior" , url_video:"t.string", url_imagen: "urlvideo"},
+{ id: 6, id_forma:2, id_cat_puntos_inspeccion: 3, nombre:"Carroceria Interior", tipo: "Urgentes", cat_puntos_desc: "Carroceria Interior" , url_video:"t.string", url_imagen: "urlvideo"},
+{ id: 7, id_forma:2, id_cat_puntos_inspeccion: 3, nombre:"Carroceria Interior", tipo: "Urgentes", cat_puntos_desc: "Carroceria Interior" , url_video:"t.string", url_imagen: "urlvideo"},
+{ id: 8, id_forma:2, id_cat_puntos_inspeccion: 3, nombre:"Carroceria Interior", tipo: "Urgentes", cat_puntos_desc: "Carroceria Interior" , url_video:"t.string", url_imagen: "urlvideo"},
+{ id: 9, id_forma:2, id_cat_puntos_inspeccion: 3, nombre:"Carroceria Interior", tipo: "Urgentes", cat_puntos_desc: "Carroceria Interior" , url_video:"t.string", url_imagen: "urlvideo"},
+{ id: 10, id_forma:2, id_cat_puntos_inspeccion: 3, nombre:"Carroceria Interior", tipo: "Urgentes", cat_puntos_desc: "Carroceria Interior" , url_video:"t.string", url_imagen: "urlvideo"},
+{ id: 11, id_forma:2, id_cat_puntos_inspeccion: 3, nombre:"Carroceria Interior", tipo: "Urgentes", cat_puntos_desc: "Carroceria Interior" , url_video:"t.string", url_imagen: "urlvideo"}
 ]
 
-Cpunto.create(cat_puntos_inspeccion)
+cat_puntos_inspeccion= [
+{ id: 1, nombre:"Carroceria exterior", tipo: "Inicial", descripcion: "Carroceria Exterior"},
+{ id: 2,  nombre:"Carroceria Tablero", tipo: "total", descripcion: "Tablero" },
+{ id: 3, nombre:"Carroceria Palanca de frenos", tipo: "Inicial", descripcion: "Frenos" },
+{ id: 4,  nombre:"Carroceria Interior", tipo: "Inicial", descripcion: "Carroceria Interior"}
+]
+
+Punto.create(puntos)
+Cpunto.create(cat_puntos_inspeccion) 
 Auto.create(autos)
 Forma.create(inspeccion)
 Rol.create(roles)
