@@ -5,7 +5,11 @@ module API
       resource :autos  do        
         desc "DEBUG - Lista todo los autos"
         get "/" do
-          allAutos = Auto.all
+            parameters = ActionController::Parameters.new(params)
+          parameters.permit(:id_cliente)
+            id_cliente = parameters[:id_cliente]    
+          if (!id_cliente.nil?)
+           allAutos = Auto.where("id_cliente = ? ", id_cliente).order(" placas ASC")
 
                 joinSet = []
 
@@ -26,6 +30,9 @@ module API
                   joinSet << joinObject 
                 }
                 {:auto=>joinSet} 
+                 else
+        Auto.all
+      end
         end
 
         desc "Busca autos por id"  
