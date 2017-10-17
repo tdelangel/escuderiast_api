@@ -55,14 +55,15 @@ ActiveRecord::Schema.define(version: 20170825032240) do
   end
 
   create_table "datos_generales", force: :cascade do |t|
-    t.string "nombre",   limit: 255
-    t.string "apaterno", limit: 255
-    t.string "amaterno", limit: 255
-    t.string "correo",   limit: 255
-    t.string "puesto",   limit: 255
-    t.string "estatus",  limit: 255
-    t.string "user_cel", limit: 255
-    t.string "user_tel", limit: 255
+    t.string  "nombre",   limit: 255
+    t.integer "id_user",  limit: 4
+    t.string  "apaterno", limit: 255
+    t.string  "amaterno", limit: 255
+    t.string  "correo",   limit: 255
+    t.string  "puesto",   limit: 255
+    t.string  "estatus",  limit: 255
+    t.string  "user_cel", limit: 255
+    t.string  "user_tel", limit: 255
   end
 
   create_table "puntos_inspeccion", force: :cascade do |t|

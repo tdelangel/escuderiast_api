@@ -10,12 +10,24 @@ module API
             parameters = ActionController::Parameters.new(params)
             parameters.permit(:origen)
             origen = parameters[:origen]
-            if (origen=='true')
-              usuarios = User.where(role:[1,2,3]) 
-            else
-              usuarios = User.where(role:[1,2,3])
-            end                      
-             {:users => usuarios}
+                usuarios = User.where(role:[1,2,3]) 
+                
+
+           joinSet = []
+
+           usuarios.each{ |usuarios| 
+            joinObject = {} 
+          autos =  Auto.where("id_cliente = ? ", usuarios.id ).order(" placas ASC");
+               dgenerales = Datos_general.where("id_user = ? ", usuarios.id ).order(" nombre ASC");
+            joinObject[:id] =     usuarios.id     
+            joinObject[:email] = usuarios.email      
+            joinObject[:name] = usuarios.name        
+            joinObject[:role] = usuarios.role   
+            joinObject[:autos] = autos   
+            joinObject[:datos_generales] = dgenerales   
+            joinSet << joinObject 
+          }              
+             {:users => joinSet}
           end
 
           desc "User por ID"
@@ -58,7 +70,7 @@ module API
               
             id = user.id
               datos = Datos_general.create!(
-                :id => id,
+                :id_user => id,
                 :nombre => parameters[:nombre],
                 :amaterno => parameters[:amaterno],
                 :apaterno => parameters[:apaterno],

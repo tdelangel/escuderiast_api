@@ -5,7 +5,8 @@ module API
       resource :dgenerales  do        
         desc "DEBUG - Lista  los datos generales"
         get "/" do
-          Datos_general.all
+         dg= Datos_general.all
+          {:dgenerales=>dg}  
         end
 
         desc "Busca Datos generales de los usuarios por id"  
