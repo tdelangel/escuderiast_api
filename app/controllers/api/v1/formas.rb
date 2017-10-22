@@ -8,18 +8,21 @@
          # allForma  = Forma.all
          #allForma = Forma.where(id: 1) Forma.joins(:Auto).where(Auto: { forma: })
   #allForma = Forma.joins("INNER JOIN cliente_autos ON cliente_autos_inspeccion.id = cliente_autos.id").includes(:Auto)
- allForma = Forma.includes(:auto).order(" id desc")
+ allForma = Forma.includes(:auto ).order(" id desc")
 
                 joinSet = []
 
                 allForma.each{ |forma| 
                   idinspeccion = forma.id
               
+                  cliente = User.where( id: forma.idcliente_autos);
                   inspeccionA = Punto.where(tipo:'Urgentes', id_forma: idinspeccion);
                   inspeccionR = Punto.where(tipo:'Sugeridos', id_forma: idinspeccion);
                   inspeccionP = Punto.where(tipo:'Sin_reparacion', id_forma: idinspeccion);
                joinObject = {} 
                   joinObject[:id] = forma.id
+                  joinObject[:cliente] = cliente
+                  joinObject[:idcliente_autos] = forma.idcliente_autos
                   joinObject[:estatus_inspeccion] = forma.estatus_inspeccion
                   joinObject[:notas_inspeccion] = forma.notas_inspeccion
                   joinObject[:fecha_inspeccion] = forma.fecha_inspeccion
@@ -31,7 +34,9 @@
                   joinObject[:puntos_sugeridos] = inspeccionR
                   joinObject[:sinreparacion_count] = inspeccionP.count 
                   joinObject[:puntos_sin_reparacion] = inspeccionP
-                  joinObject[:auto] = forma.auto  
+                  joinObject[:items] = forma.auto 
+            
+
 
                   joinSet << joinObject 
                 }
@@ -64,15 +69,14 @@
             requires :idcat_puntos_inspeccion,  type:Integer
             requires :idcliente_autos, type:Integer
             requires :cotizacion, type: Integer
-            requires :url_video, type:String
-            requires :url_imagen,  type:String
+       
           end
         end
         ## This takes care of creating employee
         post "/",root: "forma" do
         puts "PARAMETROS"
         parameters = ActionController::Parameters.new(params).require(:forma)                     
-        parameters.permit(:estatus_inspeccion, :notas_inspeccion, :fecha_inspeccion, :fecha_actualizacion, :idcat_puntos_inspeccion,:idcliente_autos, :cotizacion, :url_video, :url_imagen )
+        parameters.permit(:estatus_inspeccion, :notas_inspeccion, :fecha_inspeccion, :fecha_actualizacion, :idcat_puntos_inspeccion,:idcliente_autos, :cotizacion)
           puts "PARAMETROS: #{params[:forma]}"
             forma = Forma.create!({
               :estatus_inspeccion=>parameters[:estatus_inspeccion],
@@ -81,9 +85,7 @@
               :fecha_actualizacion=>parameters[:fecha_actualizacion],    
               :idcat_puntos_inspeccion=>parameters[:idcat_puntos_inspeccion],    
               :idcliente_autos=>parameters[:idcliente_autos],    
-              :cotizacion=>parameters[:cotizacion],    
-              :url_video=>parameters[:url_video],    
-              :url_imagen=>parameters[:url_imagen]    
+              :cotizacion=>parameters[:cotizacion]   
               })
           
             {:formas=>forma}   

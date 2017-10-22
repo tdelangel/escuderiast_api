@@ -51,7 +51,10 @@ module API
 
     desc "Crear Los Puntos de Inspeccion"
     params do
+
       requires :punto, :type => Hash do
+        requires :id_forma, type: String
+        requires :nombre, type: String
         requires :id_cat_puntos_inspeccion, type: String
         requires :cat_puntos_desc, type: String                        
         requires :tipo, type: String      
@@ -59,11 +62,15 @@ module API
     end        
     post "/",root:"punto" do
       parameters = ActionController::Parameters.new(params).require(:punto)                     
-      parameters.permit(:id_cat_puntos_inspeccion, :cat_puntos_desc, :tipo)
+      parameters.permit(:id_cat_puntos_inspeccion, :cat_puntos_desc, :tipo, :url_imagen, :url_video, :nombre, :id_forma)
       punto = Punto.create!({
         :id_cat_puntos_inspeccion=>parameters[:id_cat_puntos_inspeccion],
         :cat_puntos_desc=>parameters[:cat_puntos_desc],
-        :tipo=>parameters[:tipo]         
+        :tipo=>parameters[:tipo],
+        :url_video=>parameters[:url_video],
+        :url_imagen=>parameters[:url_imagen],
+        :nombre=>parameters[:nombre],
+        :id_forma=>parameters[:id_forma]
         })
       {:punto=>punto}            
     end           
