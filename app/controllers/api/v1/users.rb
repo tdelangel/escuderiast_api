@@ -23,7 +23,7 @@ module API
             joinObject[:email] = usuarios.email      
             joinObject[:name] = usuarios.name        
             joinObject[:role] = usuarios.role   
-            joinObject[:autos] = autos   
+            joinObject[:items] = autos   
             joinObject[:datos_generales] = dgenerales   
             joinSet << joinObject 
           }              

@@ -34,7 +34,7 @@
                   joinObject[:puntos_sugeridos] = inspeccionR
                   joinObject[:sinreparacion_count] = inspeccionP.count 
                   joinObject[:puntos_sin_reparacion] = inspeccionP
-                  joinObject[:items] = forma.auto 
+                  joinObject[:autos] = forma.auto 
             
 
 
